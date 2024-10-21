@@ -1,13 +1,18 @@
 from tkinter import BOTH, Canvas, Tk
 
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 class Line:
-    def __init__(self):
+    def __init__(self, x1, x2) -> None:
         self.x1 = x1
+        self.x2 = x2
 
-    def draw(self, canvas: Canvas, fill_color: str):
+    def draw(self, canvas: Canvas, fill_color="black") -> None:
         canvas.create_line(
-            x1, y1, x2, y2, fill=fill_color, width=2
+            self.x1.x, self.x1.y, self.x2.x, self.x2.y, fill=fill_color, width=2
         )
 
 
@@ -29,8 +34,8 @@ class Window:
         self.__root.update_idletasks()
         self.__root.update()
 
-    def draw_line(self, line: Line, fill_color: str):
-        line.draw(fill_color)
+    def draw_line(self, line: Line, fill_color="black"):
+        line.draw(self.__canvas, fill_color)
 
     def wait_for_close(self):
         self.__running = True
@@ -38,13 +43,7 @@ class Window:
         while self.__running:
             self.redraw()
 
-        print("window closed")
+        print("window closed...")
 
     def close(self):
         self.__running = False
-
-
-class Point:
-    def __init__(self):
-        self.x = 0
-        self.y = 0
