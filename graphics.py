@@ -47,3 +47,19 @@ class Window:
 
     def close(self):
         self.__running = False
+
+
+class Cell:
+    def __init__(self):
+        self.has_left_wall = True
+        self.has_right_wall = True
+        self.has_top_wall = True
+        self.has_bottom_wall = True
+        self.__x1 = True
+        self.__x2 = True
+        self.__y1 = True
+        self.__y2 = True
+        self.__win = True
+
+    def draw(self):
+        pass
