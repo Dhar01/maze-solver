@@ -1,18 +1,18 @@
 from tkinter import BOTH, Canvas, Tk
 
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
 
 class Line:
-    def __init__(self, x1, x2) -> None:
-        self.x1 = x1
-        self.x2 = x2
+    def __init__(self, p1: int, p2: int) -> None:
+        self.p1 = p1
+        self.p2 = p2
 
     def draw(self, canvas: Canvas, fill_color="black") -> None:
         canvas.create_line(
-            self.x1.x, self.x1.y, self.x2.x, self.x2.y, fill=fill_color, width=2
+            self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2
         )
 
 
@@ -30,14 +30,14 @@ class Window:
         self.__running = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
 
-    def redraw(self):
+    def redraw(self) -> None:
         self.__root.update_idletasks()
         self.__root.update()
 
-    def draw_line(self, line: Line, fill_color="black"):
+    def draw_line(self, line: Line, fill_color="black") -> None:
         line.draw(self.__canvas, fill_color)
 
-    def wait_for_close(self):
+    def wait_for_close(self) -> None:
         self.__running = True
 
         while self.__running:
@@ -45,21 +45,5 @@ class Window:
 
         print("window closed...")
 
-    def close(self):
+    def close(self) -> None:
         self.__running = False
-
-
-class Cell:
-    def __init__(self):
-        self.has_left_wall = True
-        self.has_right_wall = True
-        self.has_top_wall = True
-        self.has_bottom_wall = True
-        self.__x1 = True
-        self.__x2 = True
-        self.__y1 = True
-        self.__y2 = True
-        self.__win = True
-
-    def draw(self):
-        pass
