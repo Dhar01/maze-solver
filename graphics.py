@@ -2,15 +2,19 @@ from tkinter import BOTH, Canvas, Tk
 
 class Point:
     def __init__(self, x: int, y: int) -> None:
+        """
+        x = 0; left of the screen - horizontal
+        y = 0; top of the screen - vertical
+        """
         self.x = x
         self.y = y
 
 class Line:
-    def __init__(self, p1: int, p2: int) -> None:
+    def __init__(self, p1: Point, p2: Point) -> None:
         self.p1 = p1
         self.p2 = p2
 
-    def draw(self, canvas: Canvas, fill_color="black") -> None:
+    def draw(self, canvas: Canvas, fill_color: str="black") -> None:
         canvas.create_line(
             self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2
         )
