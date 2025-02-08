@@ -11,7 +11,7 @@ class Maze:
         num_cols: int, # max number of cols
         cell_size_x: int, # size of cell - horizontal
         cell_size_y: int, # size of cell - vertical
-        win: Window
+        win: Window | None = None
     ) -> None:
         self.__x1 = x1
         self.__y1 = y1
@@ -19,7 +19,7 @@ class Maze:
         self.__num_cols = num_cols
         self.__cell_size_x = cell_size_x
         self.__cell_size_y = cell_size_y
-        self.__win = win
+        self.__win = None
         self.__cells = []
         self._create_cells()
 
@@ -56,3 +56,6 @@ class Maze:
 
         self.__win.redraw()
         sleep(0.05)
+
+    def get_cells(self):
+        return self.__cells
