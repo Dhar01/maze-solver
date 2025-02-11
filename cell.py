@@ -1,5 +1,6 @@
 from graphics import Line, Point, Window
 
+
 class Cell:
     def __init__(self, win: Window | None = None) -> None:
         self.has_left_wall = True
@@ -25,7 +26,7 @@ class Cell:
             line = Line(Point(self.__x1, self.__y1), Point(self.__x1, self.__y2))
             self.__win.draw_line(line=line, fill_color="black")
         else:
-            line =  Line(Point(self.__x1, self.__y1), Point(self.__x1, self.__y2))
+            line = Line(Point(self.__x1, self.__y1), Point(self.__x1, self.__y2))
             self.__win.draw_line(line=line, fill_color="white")
 
         if self.has_right_wall:

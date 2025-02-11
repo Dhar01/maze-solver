@@ -1,17 +1,19 @@
-from cell import Cell
 from time import sleep
+
+from cell import Cell
 from graphics import Window
+
 
 class Maze:
     def __init__(
         self,
-        x1: int, # starting point of the maze - horizontal
-        y1: int, # starting point of the maze - vertical
-        num_rows: int, # max number of rows
-        num_cols: int, # max number of cols
-        cell_size_x: int, # size of cell - horizontal
-        cell_size_y: int, # size of cell - vertical
-        win: Window | None = None
+        x1: int,  # starting point of the maze - horizontal
+        y1: int,  # starting point of the maze - vertical
+        num_rows: int,  # max number of rows
+        num_cols: int,  # max number of cols
+        cell_size_x: int,  # size of cell - horizontal
+        cell_size_y: int,  # size of cell - vertical
+        win: Window | None = None,
     ) -> None:
         self.__x1 = x1
         self.__y1 = y1
@@ -22,7 +24,7 @@ class Maze:
         self.__win = None
         self.__cells = []
         self._create_cells()
-        self._break_entrance_and_exit
+        self._break_entrance_and_exit()
 
     def _create_cells(self) -> None:
         for i in range(self.__num_cols):
@@ -64,5 +66,5 @@ class Maze:
     def _break_entrance_and_exit(self):
         self.__cells[0][0].has_top_wall = False
         self._draw_cell(0, 0)
-        self.__cells[self.__num_cols -1][self.__num_rows -1].has_bottom_wall = False
-        self._draw_cell(self.__num_cols -1, self.__num_rows - 1)
+        self.__cells[self.__num_cols - 1][self.__num_rows - 1].has_bottom_wall = False
+        self._draw_cell(self.__num_cols - 1, self.__num_rows - 1)
